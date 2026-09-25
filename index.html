@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="AtomWorld-Mem restores hidden dynamical context for long-horizon atomistic evolution."
+    content="AtomWorld-Mem: Memory-Restored World States for Long-Horizon Atomistic Evolution."
   >
 
   <title>AtomWorld-Mem</title>
@@ -39,57 +39,63 @@
     <div class="container">
 
       <div class="institution-logos">
+
         <a
+          class="logo-link logo-link-air"
           href="https://air.tsinghua.edu.cn/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Institute for AI Industry Research, Tsinghua University"
         >
           <img
-            class="logo-air"
-            src="assets/images/air-header.svg"
+            class="institution-logo logo-air"
+            src="assets/images/air.svg"
             alt="Institute for AI Industry Research, Tsinghua University"
           >
         </a>
 
         <a
+          class="logo-link logo-link-mark"
           href="https://www.scu.edu.cn/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Sichuan University"
         >
           <img
-            class="logo-school"
+            class="institution-logo logo-mark"
             src="assets/images/scu.svg"
             alt="Sichuan University"
           >
         </a>
 
         <a
+          class="logo-link logo-link-mark"
           href="https://www.ict.ac.cn/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Institute of Computing Technology, Chinese Academy of Sciences"
         >
           <img
-            class="logo-school"
-            src="assets/images/ict-header.svg"
+            class="institution-logo logo-mark"
+            src="assets/images/ict.svg"
             alt="Institute of Computing Technology, Chinese Academy of Sciences"
           >
         </a>
 
         <a
+          class="logo-link logo-link-mark"
           href="https://www.pku.edu.cn/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Peking University"
         >
           <img
-            class="logo-school"
-            src="assets/images/pku-header.svg"
+            class="institution-logo logo-mark"
+            src="assets/images/pku.svg"
             alt="Peking University"
           >
         </a>
+
       </div>
 
       <h1>AtomWorld-Mem</h1>
@@ -103,65 +109,49 @@
           href="https://ltier125.github.io/"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Tian Luo
-        </a><sup>1,4,†</sup>
+        >Tian Luo</a><sup>1,4,†</sup>
         ·
         <a
           href="https://scholar.google.com/citations?user=8PsKswwAAAAJ&amp;hl=en"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Ruge Zhang
-        </a><sup>2,4,†</sup>
+        >Ruge Zhang</a><sup>2,4,†</sup>
         ·
         <a
           href="https://haozhihan.github.io/"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Haozhi Han
-        </a><sup>3,4</sup>
+        >Haozhi Han</a><sup>3,4</sup>
         ·
         <a
           href="https://cs.pku.edu.cn/info/1210/1960.htm"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Yifeng Chen
-        </a><sup>3</sup>
+        >Yifeng Chen</a><sup>3</sup>
         ·
         <a
           href="http://english.ict.cas.cn/people/scien/bln/202303/t20230321_328553.html"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Yunquan Zhang
-        </a><sup>2</sup>
+        >Yunquan Zhang</a><sup>2</sup>
         <br>
         <a
           href="https://air.tsinghua.edu.cn/en/info/1046/1941.htm"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Ting Cao
-        </a><sup>4</sup>
+        >Ting Cao</a><sup>4</sup>
         ·
         <a
           href="https://air.tsinghua.edu.cn/en/info/1046/1193.htm"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Yunxin Liu
-        </a><sup>4</sup>
+        >Yunxin Liu</a><sup>4</sup>
         ·
         <a
           href="https://www.likun.tech/"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Kun Li
-        </a><sup>4,‡</sup>
+        >Kun Li</a><sup>4,‡</sup>
       </p>
 
       <p class="affiliations">
@@ -177,6 +167,7 @@
       </p>
 
       <div class="button-row">
+
         <a
           class="button button-primary"
           href="https://github.com/RSIScience/AtomWorld-Mem"
@@ -200,6 +191,7 @@
         >
           Citation
         </a>
+
       </div>
 
     </div>
@@ -209,6 +201,7 @@
 
     <section id="introduction">
       <div class="container">
+
         <h2 class="section-title">Introduction</h2>
 
         <p class="section-lead">
@@ -217,6 +210,7 @@
         </p>
 
         <div class="text-block">
+
           <p>
             Conventional Kinetic Monte Carlo (KMC) advances an atomistic
             system through physically admissible local events and updates
@@ -243,9 +237,10 @@
             and recurrent structural memory to restore hidden evolutionary
             context and prioritize simulator-provided legal events.
           </p>
+
         </div>
 
-        <figure class="figure figure-wide">
+        <figure class="figure figure-standard">
           <img
             src="assets/images/snapshot-insufficiency.png"
             alt="Snapshot ambiguity and event branching in atomistic evolution"
@@ -253,13 +248,13 @@
 
           <figcaption>
             <strong>Figure 1 · Snapshot ambiguity.</strong>
-            Identical local spatial observations can branch into different
-            legal hop directions and waiting-time scales, demonstrating that
-            a static snapshot is not always a sufficient predictive state.
+            Identical local observations can branch into different legal
+            hop directions and waiting-time scales, demonstrating that a
+            static snapshot is not always a sufficient predictive state.
           </figcaption>
         </figure>
 
-        <figure class="figure figure-wide">
+        <figure class="figure figure-standard">
           <img
             src="assets/images/bcc_evolution.png"
             alt="Initial and evolved BCC Fe-Cu configurations"
@@ -271,11 +266,13 @@
             as evolution proceeds.
           </figcaption>
         </figure>
+
       </div>
     </section>
 
-    <section id="highlights" class="alt">
+    <section id="highlights">
       <div class="container">
+
         <h2 class="section-title">Highlights</h2>
 
         <p class="section-lead">
@@ -287,7 +284,6 @@
 
           <article class="card">
             <h3>Memory-restored world state</h3>
-
             <p>
               Combines spatial keyframes, recent legal-event history, and
               recurrent structural memory to infer hidden evolutionary
@@ -297,7 +293,6 @@
 
           <article class="card">
             <h3>Multi-scale atomistic keyframes</h3>
-
             <p>
               Encodes vacancy-centered short-range topology together with
               sparse long-range defect information.
@@ -306,17 +301,14 @@
 
           <article class="card">
             <h3>Physics-constrained actions</h3>
-
             <p>
               Scores only physically admissible vacancy exchanges supplied
-              by the simulator and never generates unconstrained atomic
-              moves.
+              by the simulator and never generates unconstrained moves.
             </p>
           </article>
 
           <article class="card">
             <h3>Matched-budget evaluation</h3>
-
             <p>
               Compares methods from matched initial-state families using
               equal numbers of legal KMC events.
@@ -325,7 +317,6 @@
 
           <article class="card">
             <h3>Time-consistent hazards</h3>
-
             <p>
               Uses a shared memory-conditioned hazard field for event
               preference and expected waiting-time reasoning.
@@ -334,7 +325,6 @@
 
           <article class="card">
             <h3>Zero-shot transfer</h3>
-
             <p>
               Transfers the learned restoration mechanism to 16 unseen
               alloy-temperature domains without finetuning.
@@ -342,24 +332,24 @@
           </article>
 
         </div>
+
       </div>
     </section>
 
     <section id="method">
       <div class="container">
+
         <h2 class="section-title">Method</h2>
 
         <p class="section-lead">
-          Partial observations are written into keyframes, memory integrates
-          the keyframes with past legal events, and the restored state ranks
-          the current legal KMC event set.
+          Memory integrates spatial keyframes with past legal events, and
+          the restored state ranks the current legal KMC event set.
         </p>
 
         <div class="method-grid">
 
           <article class="card">
             <h3>1. Keyframe Writer</h3>
-
             <p>
               A graph encoder summarizes dense short-range topology around
               each vacancy, while an attention encoder captures sparse
@@ -369,7 +359,6 @@
 
           <article class="card">
             <h3>2. Latent-State Memory</h3>
-
             <p>
               Short-term memory represents recent transition competition,
               while recurrent memory accumulates slower aggregation and
@@ -379,7 +368,6 @@
 
           <article class="card">
             <h3>3. Legal Event Scorer</h3>
-
             <p>
               Every admissible event is represented using event-local
               structure, hop direction, and energetic or kinetic features.
@@ -388,20 +376,20 @@
 
           <article class="card">
             <h3>4. Physics-Guided Policy</h3>
-
             <p>
               Recurrent PPO optimizes long-horizon progress while physical
-              priors and time-consistency objectives regularize the learned
-              policy.
+              priors and time-consistency objectives regularize the policy.
             </p>
           </article>
 
         </div>
+
       </div>
     </section>
 
-    <section id="results" class="alt">
+    <section id="results">
       <div class="container">
+
         <h2 class="section-title">Results</h2>
 
         <p class="section-lead">
@@ -409,7 +397,8 @@
           physically meaningful structural and kinetic trends.
         </p>
 
-        <div class="result-item">
+        <article class="result-item">
+
           <h3>Acceleration across Cu concentrations</h3>
 
           <p>
@@ -425,23 +414,24 @@
 
             <figcaption>
               <strong>Figure 3 · Cu-dependent acceleration.</strong>
-              Fixed-budget acceleration relative to traditional KMC.
-              The maximum acceleration is approximately 420× near
-              0.18% Cu.
+              Fixed-budget acceleration relative to traditional KMC,
+              peaking at approximately 420× near 0.18% Cu.
             </figcaption>
           </figure>
-        </div>
 
-        <div class="result-item">
+        </article>
+
+        <article class="result-item">
+
           <h3>Fixed-budget energy evolution</h3>
 
           <p>
             Under the same 100k legal-event budget, AtomWorld-Mem reaches
-            larger energy drops and lower total energies at both tested
-            Cu concentrations.
+            larger energy drops and lower total energies at both Cu
+            concentrations.
           </p>
 
-          <figure class="figure figure-wide">
+          <figure class="figure figure-standard">
             <img
               src="assets/images/energy-progress-comparison.png"
               alt="Energy evolution comparison with traditional KMC"
@@ -453,18 +443,20 @@
               0.18% and 1.34% Cu.
             </figcaption>
           </figure>
-        </div>
 
-        <div class="result-item">
+        </article>
+
+        <article class="result-item">
+
           <h3>Restored-state fidelity</h3>
 
           <p>
-            Fast progress alone is insufficient. AtomWorld-Mem remains
-            aligned with reference dynamics across energetic, structural,
-            and vacancy-transport observables in physical-time space.
+            AtomWorld-Mem remains aligned with reference dynamics across
+            energetic, structural, and vacancy-transport observables in
+            physical-time space.
           </p>
 
-          <figure class="figure figure-wide">
+          <figure class="figure figure-standard">
             <img
               src="assets/images/dynamics-correctness.png"
               alt="Physical-time dynamics comparison across six observables"
@@ -476,9 +468,11 @@
               normalized energy, first-arrival time, and largest-cluster size.
             </figcaption>
           </figure>
-        </div>
 
-        <div class="result-item">
+        </article>
+
+        <article class="result-item">
+
           <h3>Zero-shot generalization</h3>
 
           <p>
@@ -487,7 +481,7 @@
             a median AUC gain of 22.9× and a maximum gain of 52.1×.
           </p>
 
-          <figure class="figure figure-wide">
+          <figure class="figure figure-standard">
             <img
               src="assets/images/zero-shot-generalization.png"
               alt="Zero-shot generalization across alloy-temperature domains"
@@ -499,13 +493,15 @@
               W-Re, and Ta-W domains.
             </figcaption>
           </figure>
-        </div>
+
+        </article>
 
       </div>
     </section>
 
     <section id="quickstart">
       <div class="container">
+
         <h2 class="section-title">Quickstart</h2>
 
         <p class="section-lead">
@@ -513,7 +509,7 @@
           Python environment.
         </p>
 
-        <div class="citation-box">
+        <div class="code-box">
           <pre>git clone https://github.com/RSIScience/AtomWorld-Mem.git
 cd AtomWorld-Mem
 python -m venv .venv
@@ -531,18 +527,20 @@ python -m pip install -e .</pre>
             Full instructions
           </a>
         </div>
+
       </div>
     </section>
 
-    <section id="citation" class="alt">
+    <section id="citation">
       <div class="container">
+
         <h2 class="section-title">Citation</h2>
 
         <p class="section-lead">
           If you find AtomWorld-Mem useful in your research, please cite:
         </p>
 
-        <div class="citation-box">
+        <div class="code-box">
           <pre>@article{luo2026atomworldmem,
   title  = {AtomWorld-Mem: Memory-Restored World States for
             Long-Horizon Atomistic Evolution},
@@ -553,6 +551,7 @@ python -m pip install -e .</pre>
   url    = {https://github.com/RSIScience/AtomWorld-Mem}
 }</pre>
         </div>
+
       </div>
     </section>
 
@@ -570,8 +569,6 @@ python -m pip install -e .</pre>
       </a>
     </div>
   </footer>
-
-  <!-- Trigger GitHub Pages deployment -->
 
 </body>
 </html>
