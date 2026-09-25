@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="AtomWorld-Mem restores hidden dynamical context for long-horizon atomistic evolution."
+  >
+
+  <title>AtomWorld-Mem</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a class="brand" href="#">AtomWorld-Mem</a>
+
+      <div class="nav-links">
+        <a href="#introduction">Introduction</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#quickstart">Quickstart</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+
+      <div class="institution-logos">
+        <a href="https://air.tsinghua.edu.cn/" target="_blank" rel="noopener">
+          <img
+            class="logo-air"
+            src="assets/images/air-header.png"
+            alt="Institute for AI Industry Research, Tsinghua University"
+          >
+        </a>
+
+        <a href="https://www.scu.edu.cn/" target="_blank" rel="noopener">
+          <img
+            class="logo-school"
+            src="assets/images/scu-header.png"
+            alt="Sichuan University"
+          >
+        </a>
+
+        <a href="https://www.ict.ac.cn/" target="_blank" rel="noopener">
+          <img
+            class="logo-school"
+            src="assets/images/ict-header.png"
+            alt="Institute of Computing Technology, Chinese Academy of Sciences"
+          >
+        </a>
+
+        <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener">
+          <img
+            class="logo-school"
+            src="assets/images/pku-header.png"
+            alt="Peking University"
+          >
+        </a>
+      </div>
+
+      <h1>AtomWorld-Mem</h1>
+
+      <p class="subtitle">
+        Memory-Restored World States for Long-Horizon Atomistic Evolution
+      </p>
+
+      <p class="authors">
+        <a href="https://ltier125.github.io/" target="_blank" rel="noopener">
+          Tian Luo
+        </a><sup>1,4,†</sup>
+        ·
+        <a
+          href="https://scholar.google.com/citations?user=8PsKswwAAAAJ&hl=en"
+          target="_blank"
+          rel="noopener"
+        >
+          Ruge Zhang
+        </a><sup>2,4,†</sup>
+        ·
+        <a href="https://haozhihan.github.io/" target="_blank" rel="noopener">
+          Haozhi Han
+        </a><sup>3,4</sup>
+        ·
+        <a
+          href="https://cs.pku.edu.cn/info/1210/1960.htm"
+          target="_blank"
+          rel="noopener"
+        >
+          Yifeng Chen
+        </a><sup>3</sup>
+        ·
+        <a
+          href="http://english.ict.cas.cn/people/scien/bln/202303/t20230321_328553.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Yunquan Zhang
+        </a><sup>2</sup>
+        <br>
+        <a
+          href="https://air.tsinghua.edu.cn/en/info/1046/1941.htm"
+          target="_blank"
+          rel="noopener"
+        >
+          Ting Cao
+        </a><sup>4</sup>
+        ·
+        <a
+          href="https://air.tsinghua.edu.cn/en/info/1046/1193.htm"
+          target="_blank"
+          rel="noopener"
+        >
+          Yunxin Liu
+        </a><sup>4</sup>
+        ·
+        <a href="https://www.likun.tech/" target="_blank" rel="noopener">
+          Kun Li
+        </a><sup>4,‡</sup>
+      </p>
+
+      <p class="affiliations">
+        <sup>1</sup>Sichuan University, Chengdu, China<br>
+        <sup>2</sup>Institute of Computing Technology,
+        Chinese Academy of Sciences, Beijing, China<br>
+        <sup>3</sup>School of Computer Science,
+        Peking University, Beijing, China<br>
+        <sup>4</sup>Institute for AI Industry Research (AIR),
+        Tsinghua University, Beijing, China<br>
+        <sup>†</sup>Equal contribution ·
+        <sup>‡</sup>Corresponding author
+      </p>
+
+      <div class="button-row">
+        <a
+          class="button button-primary"
+          href="https://github.com/RSIScience/AtomWorld-Mem"
+          target="_blank"
+          rel="noopener"
+        >
+          Code
+        </a>
+
+        <a class="button button-secondary" href="#citation">
+          Citation
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section id="introduction">
+      <div class="container">
+        <h2 class="section-title">Introduction</h2>
+
+        <p class="section-lead">
+          Long-horizon atomistic evolution requires more than the current
+          crystal configuration.
+        </p>
+
+        <div class="text-block">
+          <p>
+            Conventional Kinetic Monte Carlo (KMC) advances an atomistic
+            system through physically admissible local events and updates
+            physical time from transition rates. However, an instantaneous
+            snapshot cannot always reveal whether an event is a reversible
+            local fluctuation or a transition with persistent structural
+            consequences.
+          </p>
+
+          <p>
+            This creates <strong>snapshot ambiguity</strong>: locally
+            identical observations may arise from different dynamical
+            histories, branch into different future-event distributions,
+            and exhibit substantially different waiting-time scales.
+            Under a finite event budget, conventional simulation can
+            therefore spend many steps in locally metastable motion while
+            rare but consequential transitions remain delayed.
+          </p>
+
+          <p>
+            <strong>AtomWorld-Mem</strong> formulates this challenge as a
+            memory-based world-state restoration problem. It combines
+            multi-scale atomistic keyframes, recent legal-event history,
+            and recurrent structural memory to restore hidden evolutionary
+            context and prioritize simulator-provided legal events.
+          </p>
+        </div>
+
+        <figure class="figure figure-wide">
+          <img
+            src="assets/images/snapshot-insufficiency.png"
+            alt="Snapshot ambiguity and event branching in atomistic evolution"
+          >
+          <figcaption>
+            <strong>Figure 1 · Snapshot ambiguity.</strong>
+            Identical local spatial observations can branch into different
+            legal hop directions and waiting-time scales, demonstrating that
+            a static snapshot is not always a sufficient predictive state.
+          </figcaption>
+        </figure>
+
+        <figure class="figure figure-wide">
+          <img
+            src="assets/images/bcc_evolution.png"
+            alt="Initial and evolved BCC Fe-Cu configurations"
+          >
+          <figcaption>
+            <strong>Figure 2 · Long-horizon structural evolution.</strong>
+            A dispersed BCC Fe-Cu configuration develops Cu-rich clusters
+            as evolution proceeds.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="highlights" class="alt">
+      <div class="container">
+        <h2 class="section-title">Highlights</h2>
+
+        <p class="section-lead">
+          Memory restoration connects partial atomistic observations with
+          physically constrained long-horizon evolution.
+        </p>
+
+        <div class="highlight-grid">
+
+          <article class="card">
+            <h3>Memory-restored world state</h3>
+            <p>
+              Combines spatial keyframes, recent legal-event history, and
+              recurrent structural memory to infer hidden evolutionary
+              context.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Multi-scale atomistic keyframes</h3>
+            <p>
+              Encodes vacancy-centered short-range topology together with
+              sparse long-range defect information.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Physics-constrained actions</h3>
+            <p>
+              Scores only physically admissible vacancy exchanges supplied
+              by the simulator and never generates unconstrained atomic
+              moves.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Matched-budget evaluation</h3>
+            <p>
+              Compares methods from matched initial-state families using
+              equal numbers of legal KMC events.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Time-consistent hazards</h3>
+            <p>
+              Uses a shared memory-conditioned hazard field for event
+              preference and expected waiting-time reasoning.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Zero-shot transfer</h3>
+            <p>
+              Transfers the learned restoration mechanism to 16 unseen
+              alloy-temperature domains without finetuning.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="container">
+        <h2 class="section-title">Method</h2>
+
+        <p class="section-lead">
+          Partial observations are written into keyframes, memory integrates
+          the keyframes with past legal events, and the restored state ranks
+          the current legal KMC event set.
+        </p>
+
+        <div class="method-grid">
+
+          <article class="card">
+            <h3>1. Keyframe Writer</h3>
+            <p>
+              A graph encoder summarizes dense short-range topology around
+              each vacancy, while an attention encoder captures sparse
+              long-range defect context.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>2. Latent-State Memory</h3>
+            <p>
+              Short-term memory represents recent transition competition,
+              while recurrent memory accumulates slower aggregation and
+              defect-evolution trends.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>3. Legal Event Scorer</h3>
+            <p>
+              Every admissible event is represented using event-local
+              structure, hop direction, and energetic or kinetic features.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>4. Physics-Guided Policy</h3>
+            <p>
+              Recurrent PPO optimizes long-horizon progress while physical
+              priors and time-consistency objectives regularize the learned
+              policy.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="alt">
+      <div class="container">
+        <h2 class="section-title">Results</h2>
+
+        <p class="section-lead">
+          AtomWorld-Mem improves fixed-budget progress while preserving
+          physically meaningful structural and kinetic trends.
+        </p>
+
+        <div class="result-item">
+          <h3>Acceleration across Cu concentrations</h3>
+          <p>
+            The gain remains positive throughout the tested concentration
+            range, peaks near 0.18% Cu, and averages 186×.
+          </p>
+
+          <figure class="figure figure-single">
+            <img
+              src="assets/images/cu-concentration-advancement.png"
+              alt="Acceleration factor across Cu concentrations"
+            >
+            <figcaption>
+              <strong>Figure 3 · Cu-dependent acceleration.</strong>
+              Fixed-budget acceleration relative to traditional KMC.
+              The maximum acceleration is approximately 420× near
+              0.18% Cu.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="result-item">
+          <h3>Fixed-budget energy evolution</h3>
+          <p>
+            Under the same 100k legal-event budget, AtomWorld-Mem reaches
+            larger energy drops and lower total energies at both tested
+            Cu concentrations.
+          </p>
+
+          <figure class="figure figure-wide">
+            <img
+              src="assets/images/energy-progress-comparison.png"
+              alt="Energy evolution comparison with traditional KMC"
+            >
+            <figcaption>
+              <strong>Figure 4 · Energy evolution.</strong>
+              Energy drop and total energy over legal KMC steps at
+              0.18% and 1.34% Cu.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="result-item">
+          <h3>Restored-state fidelity</h3>
+          <p>
+            Fast progress alone is insufficient. AtomWorld-Mem remains
+            aligned with reference dynamics across energetic, structural,
+            and vacancy-transport observables in physical-time space.
+          </p>
+
+          <figure class="figure figure-wide">
+            <img
+              src="assets/images/dynamics-correctness.png"
+              alt="Physical-time dynamics comparison across six observables"
+            >
+            <figcaption>
+              <strong>Figure 5 · Dynamics fidelity.</strong>
+              Comparison across advancement, Cu clusters, vacancy contact,
+              normalized energy, first-arrival time, and largest-cluster size.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="result-item">
+          <h3>Zero-shot generalization</h3>
+          <p>
+            Without finetuning, AtomWorld-Mem improves fixed-budget
+            energy-drop trajectories across 16 unseen domains, obtaining
+            a median AUC gain of 22.9× and a maximum gain of 52.1×.
+          </p>
+
+          <figure class="figure figure-wide">
+            <img
+              src="assets/images/zero-shot-generalization.png"
+              alt="Zero-shot generalization across alloy-temperature domains"
+            >
+            <figcaption>
+              <strong>Figure 6 · Zero-shot generalization.</strong>
+              Results across Fe-Cr, Fe-Al, Fe-Si, Fe-V, Fe-Mo, Mo-Re,
+              W-Re, and Ta-W domains.
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quickstart">
+      <div class="container">
+        <h2 class="section-title">Quickstart</h2>
+
+        <p class="section-lead">
+          Clone the repository and install AtomWorld-Mem in an isolated
+          Python environment.
+        </p>
+
+        <div class="citation-box">
+          <pre>git clone https://github.com/RSIScience/AtomWorld-Mem.git
+cd AtomWorld-Mem
+python -m venv .venv
+python -m pip install --upgrade pip
+python -m pip install -e .</pre>
+        </div>
+
+        <div class="button-row">
+          <a
+            class="button button-primary"
+            href="https://github.com/RSIScience/AtomWorld-Mem#quickstart"
+            target="_blank"
+            rel="noopener"
+          >
+            Full instructions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="alt">
+      <div class="container">
+        <h2 class="section-title">Citation</h2>
+
+        <p class="section-lead">
+          If you find AtomWorld-Mem useful in your research, please cite:
+        </p>
+
+        <div class="citation-box">
+          <pre>@article{luo2026atomworldmem,
+  title  = {AtomWorld-Mem: Memory-Restored World States for
+            Long-Horizon Atomistic Evolution},
+  author = {Luo, Tian and Zhang, Ruge and Han, Haozhi and
+            Chen, Yifeng and Zhang, Yunquan and Cao, Ting and
+            Liu, Yunxin and Li, Kun},
+  year   = {2026},
+  url    = {https://github.com/RSIScience/AtomWorld-Mem}
+}</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      AtomWorld-Mem · Released under the
+      <a
+        href="https://github.com/RSIScience/AtomWorld-Mem/blob/main/LICENSE"
+        target="_blank"
+        rel="noopener"
+      >
+        MIT License
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
