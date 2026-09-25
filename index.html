@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
@@ -35,34 +39,54 @@
     <div class="container">
 
       <div class="institution-logos">
-        <a href="https://air.tsinghua.edu.cn/" target="_blank" rel="noopener">
+        <a
+          href="https://air.tsinghua.edu.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Institute for AI Industry Research, Tsinghua University"
+        >
           <img
             class="logo-air"
-            src="assets/images/air-header.png"
+            src="assets/images/air-header.svg"
             alt="Institute for AI Industry Research, Tsinghua University"
           >
         </a>
 
-        <a href="https://www.scu.edu.cn/" target="_blank" rel="noopener">
+        <a
+          href="https://www.scu.edu.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sichuan University"
+        >
           <img
             class="logo-school"
-            src="assets/images/scu-header.png"
+            src="assets/images/scu.svg"
             alt="Sichuan University"
           >
         </a>
 
-        <a href="https://www.ict.ac.cn/" target="_blank" rel="noopener">
+        <a
+          href="https://www.ict.ac.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Institute of Computing Technology, Chinese Academy of Sciences"
+        >
           <img
             class="logo-school"
-            src="assets/images/ict-header.png"
+            src="assets/images/ict-header.svg"
             alt="Institute of Computing Technology, Chinese Academy of Sciences"
           >
         </a>
 
-        <a href="https://www.pku.edu.cn/" target="_blank" rel="noopener">
+        <a
+          href="https://www.pku.edu.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Peking University"
+        >
           <img
             class="logo-school"
-            src="assets/images/pku-header.png"
+            src="assets/images/pku-header.svg"
             alt="Peking University"
           >
         </a>
@@ -75,26 +99,34 @@
       </p>
 
       <p class="authors">
-        <a href="https://ltier125.github.io/" target="_blank" rel="noopener">
+        <a
+          href="https://ltier125.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Tian Luo
         </a><sup>1,4,†</sup>
         ·
         <a
-          href="https://scholar.google.com/citations?user=8PsKswwAAAAJ&hl=en"
+          href="https://scholar.google.com/citations?user=8PsKswwAAAAJ&amp;hl=en"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Ruge Zhang
         </a><sup>2,4,†</sup>
         ·
-        <a href="https://haozhihan.github.io/" target="_blank" rel="noopener">
+        <a
+          href="https://haozhihan.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Haozhi Han
         </a><sup>3,4</sup>
         ·
         <a
           href="https://cs.pku.edu.cn/info/1210/1960.htm"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Yifeng Chen
         </a><sup>3</sup>
@@ -102,7 +134,7 @@
         <a
           href="http://english.ict.cas.cn/people/scien/bln/202303/t20230321_328553.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Yunquan Zhang
         </a><sup>2</sup>
@@ -110,7 +142,7 @@
         <a
           href="https://air.tsinghua.edu.cn/en/info/1046/1941.htm"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Ting Cao
         </a><sup>4</sup>
@@ -118,12 +150,16 @@
         <a
           href="https://air.tsinghua.edu.cn/en/info/1046/1193.htm"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Yunxin Liu
         </a><sup>4</sup>
         ·
-        <a href="https://www.likun.tech/" target="_blank" rel="noopener">
+        <a
+          href="https://www.likun.tech/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Kun Li
         </a><sup>4,‡</sup>
       </p>
@@ -145,12 +181,23 @@
           class="button button-primary"
           href="https://github.com/RSIScience/AtomWorld-Mem"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           Code
         </a>
 
-        <a class="button button-secondary" href="#citation">
+        <span
+          class="button button-secondary button-disabled"
+          aria-disabled="true"
+          title="The arXiv version will be available soon"
+        >
+          Paper
+        </span>
+
+        <a
+          class="button button-secondary"
+          href="#citation"
+        >
           Citation
         </a>
       </div>
@@ -203,6 +250,7 @@
             src="assets/images/snapshot-insufficiency.png"
             alt="Snapshot ambiguity and event branching in atomistic evolution"
           >
+
           <figcaption>
             <strong>Figure 1 · Snapshot ambiguity.</strong>
             Identical local spatial observations can branch into different
@@ -216,6 +264,7 @@
             src="assets/images/bcc_evolution.png"
             alt="Initial and evolved BCC Fe-Cu configurations"
           >
+
           <figcaption>
             <strong>Figure 2 · Long-horizon structural evolution.</strong>
             A dispersed BCC Fe-Cu configuration develops Cu-rich clusters
@@ -238,6 +287,7 @@
 
           <article class="card">
             <h3>Memory-restored world state</h3>
+
             <p>
               Combines spatial keyframes, recent legal-event history, and
               recurrent structural memory to infer hidden evolutionary
@@ -247,6 +297,7 @@
 
           <article class="card">
             <h3>Multi-scale atomistic keyframes</h3>
+
             <p>
               Encodes vacancy-centered short-range topology together with
               sparse long-range defect information.
@@ -255,6 +306,7 @@
 
           <article class="card">
             <h3>Physics-constrained actions</h3>
+
             <p>
               Scores only physically admissible vacancy exchanges supplied
               by the simulator and never generates unconstrained atomic
@@ -264,6 +316,7 @@
 
           <article class="card">
             <h3>Matched-budget evaluation</h3>
+
             <p>
               Compares methods from matched initial-state families using
               equal numbers of legal KMC events.
@@ -272,6 +325,7 @@
 
           <article class="card">
             <h3>Time-consistent hazards</h3>
+
             <p>
               Uses a shared memory-conditioned hazard field for event
               preference and expected waiting-time reasoning.
@@ -280,6 +334,7 @@
 
           <article class="card">
             <h3>Zero-shot transfer</h3>
+
             <p>
               Transfers the learned restoration mechanism to 16 unseen
               alloy-temperature domains without finetuning.
@@ -304,6 +359,7 @@
 
           <article class="card">
             <h3>1. Keyframe Writer</h3>
+
             <p>
               A graph encoder summarizes dense short-range topology around
               each vacancy, while an attention encoder captures sparse
@@ -313,6 +369,7 @@
 
           <article class="card">
             <h3>2. Latent-State Memory</h3>
+
             <p>
               Short-term memory represents recent transition competition,
               while recurrent memory accumulates slower aggregation and
@@ -322,6 +379,7 @@
 
           <article class="card">
             <h3>3. Legal Event Scorer</h3>
+
             <p>
               Every admissible event is represented using event-local
               structure, hop direction, and energetic or kinetic features.
@@ -330,6 +388,7 @@
 
           <article class="card">
             <h3>4. Physics-Guided Policy</h3>
+
             <p>
               Recurrent PPO optimizes long-horizon progress while physical
               priors and time-consistency objectives regularize the learned
@@ -352,6 +411,7 @@
 
         <div class="result-item">
           <h3>Acceleration across Cu concentrations</h3>
+
           <p>
             The gain remains positive throughout the tested concentration
             range, peaks near 0.18% Cu, and averages 186×.
@@ -362,6 +422,7 @@
               src="assets/images/cu-concentration-advancement.png"
               alt="Acceleration factor across Cu concentrations"
             >
+
             <figcaption>
               <strong>Figure 3 · Cu-dependent acceleration.</strong>
               Fixed-budget acceleration relative to traditional KMC.
@@ -373,6 +434,7 @@
 
         <div class="result-item">
           <h3>Fixed-budget energy evolution</h3>
+
           <p>
             Under the same 100k legal-event budget, AtomWorld-Mem reaches
             larger energy drops and lower total energies at both tested
@@ -384,6 +446,7 @@
               src="assets/images/energy-progress-comparison.png"
               alt="Energy evolution comparison with traditional KMC"
             >
+
             <figcaption>
               <strong>Figure 4 · Energy evolution.</strong>
               Energy drop and total energy over legal KMC steps at
@@ -394,6 +457,7 @@
 
         <div class="result-item">
           <h3>Restored-state fidelity</h3>
+
           <p>
             Fast progress alone is insufficient. AtomWorld-Mem remains
             aligned with reference dynamics across energetic, structural,
@@ -405,6 +469,7 @@
               src="assets/images/dynamics-correctness.png"
               alt="Physical-time dynamics comparison across six observables"
             >
+
             <figcaption>
               <strong>Figure 5 · Dynamics fidelity.</strong>
               Comparison across advancement, Cu clusters, vacancy contact,
@@ -415,6 +480,7 @@
 
         <div class="result-item">
           <h3>Zero-shot generalization</h3>
+
           <p>
             Without finetuning, AtomWorld-Mem improves fixed-budget
             energy-drop trajectories across 16 unseen domains, obtaining
@@ -426,6 +492,7 @@
               src="assets/images/zero-shot-generalization.png"
               alt="Zero-shot generalization across alloy-temperature domains"
             >
+
             <figcaption>
               <strong>Figure 6 · Zero-shot generalization.</strong>
               Results across Fe-Cr, Fe-Al, Fe-Si, Fe-V, Fe-Mo, Mo-Re,
@@ -459,7 +526,7 @@ python -m pip install -e .</pre>
             class="button button-primary"
             href="https://github.com/RSIScience/AtomWorld-Mem#quickstart"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Full instructions
           </a>
@@ -497,13 +564,14 @@ python -m pip install -e .</pre>
       <a
         href="https://github.com/RSIScience/AtomWorld-Mem/blob/main/LICENSE"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         MIT License
       </a>
     </div>
   </footer>
 
+  <!-- Trigger GitHub Pages deployment -->
+
 </body>
 </html>
-<!-- Trigger GitHub Pages deployment -->
